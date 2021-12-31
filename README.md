@@ -26,11 +26,13 @@ Learning Nextjs from different resources and making an sample website. Come lets
 
 # Building Next JS App
 
-We are going to build next-class simple 😂 blog and the link is [click me witness blog](#building-next-js-app)
+> We are going to build next-class simple 😂 blog and the link is [click me witness blog](#building-next-js-app)
 
 Through this learnings we will be using NPM instead of Yarn
 
-## Setup
+## Coding
+
+### Setup
 
 1. NodeJS (latest version don't scold me later 😅)
 2. create a next-app boiler code folders using cmd `npx create-next-app app-name --use-npm`
@@ -42,9 +44,38 @@ $ cd app-name
 $ npm run dev
 ```
 
-3.
+### Page creation/ Routings
+
+[routes official docs](https://nextjs.org/docs/routing/introduction)
+
+> So far, we have created only one page app. Now we will try to create many pages and start navigating through them.
+
+- NextJS uses file system based routing, any .js files placed in `pages` folder acts as each webpage
+- By default `index.js` file as root page
+
+> pages/index.js → /
+>
+> pages/blog/first-post.js → /blog/first-post (nested pages)
+>
+> pages/blog/[slug].js → /blog/:slug (/blog/hello-world)
+
+- Add `anyPageName.js` file in pages folder and access it via [http://localhost:3000/anyPageName](http://localhost:3000/anyPageName)
+
+**Page Linkings**
+
+- In NextJS we use `Link` component from `next/link`
+
+```
+    <Link href="/firstPost">
+        <a>First Page</a>
+    </Link>
+```
 
 # References
 
 1. [Traversy Media 1hr YT crashcourse](https://www.youtube.com/watch?v=mTz0GXj8NN0&t=1637s)
 2. [Official Learning docs](https://nextjs.org/learn/basics/create-nextjs-app)
+
+```
+
+```
