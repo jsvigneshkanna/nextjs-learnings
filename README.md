@@ -61,7 +61,9 @@ $ npm run dev
 
 - Add `anyPageName.js` file in pages folder and access it via [http://localhost:3000/anyPageName](http://localhost:3000/anyPageName)
 
-**Page Linkings**
+### Page Linkings
+
+Links are used to make client side navigation rather than page reload from server-side
 
 - In NextJS we use `Link` component from `next/link`
 
@@ -70,6 +72,40 @@ $ npm run dev
         <a>First Page</a>
     </Link>
 ```
+
+### Assets, Metadata, and CSS
+
+1. **Assets :**
+
+   - Assets like images, favicons which public users can access, will be stored in **/public** folder
+   - We can use [`next/image`](https://nextjs.org/docs/api-reference/next/image) to extend new features which `img` tag has
+   - Images are lazy loaded by default. That means your page speed isn't penalized for images outside the viewport. Images load as they are scrolled into viewport.
+     > When using `Image`, we need to specify height and width props
+
+2. **Metadata :**
+
+   - We can add metadata related to the individual page(pageName.js), or as whole website(app.js)
+   - NextJS uses `Head` tag from `next/head` instead of `head` tag in html
+
+     ```
+     import Head from 'next/head'
+     <Head>
+         <title>Create Next App</title>
+         <link rel="icon" href="/favicon.ico" />
+     </Head>
+     ```
+
+   - To use 3rd party js script we use `Script` tag from `next/script` instead of traditional `<script>` to optimize the js file loadings and performance
+     ```
+     import Script from 'next/script'
+     <Script
+     src="https://connect.facebook.net/en_US/sdk.js"
+     strategy="lazyOnload"
+     onLoad={() =>
+       console.log(`script loaded correctly, window.FB has been populated`)
+     }
+     />
+     ```
 
 # References
 

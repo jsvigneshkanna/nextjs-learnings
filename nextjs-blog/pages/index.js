@@ -1,33 +1,38 @@
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import Layout, { siteTitle } from "../components/layout";
+import utilStyles from "../styles/utils.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Layout home>
       <Head>
-        <title>Blog | Home</title>
-        <meta name="description" content="demo blog for vk using nextjs" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>{siteTitle}</title>
       </Head>
-      <h1>Hi Vignesh</h1>
+      <section className={utilStyles.headingMd}>
+        <p>
+          Helloow 🙋‍♂️, I am a software engineer exploring different technologies to fill empty space in my brain with
+          knowledge
+        </p>
+        <p>Come lets all learn together 💃</p>
+      </section>
       <ul>
         <li>
           <Link href="/firstPost">
-            <a>First Page</a>
+            <a>First blog</a>
           </Link>
         </li>
         <li>
           <Link href="/firstPost">
-            <a>First Page</a>
+            <a>First blog</a>
           </Link>
         </li>
         <li>
           <Link href="/firstPost">
-            <a>First Page</a>
+            <a>First blog</a>
           </Link>
         </li>
       </ul>
-    </div>
+    </Layout>
   );
 }
