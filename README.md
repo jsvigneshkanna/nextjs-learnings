@@ -107,6 +107,18 @@ Links are used to make client side navigation rather than page reload from serve
      />
      ```
 
+### Pre-rendering & Data fetching
+
+By default nextjs app pages are pre-rendered, which means app generates HTML for each page in advance instead of client-side js.
+This increase perfomance and SEO
+
+**Two types of Pre-rendering**
+
+1. Static generation (**_Recommended_**): HTML is generated at build time and will be reused on each request
+2. Server-side: HTML is generated on each request
+
+> We can mix-use both this form in different pages
+
 # References
 
 1. [Traversy Media 1hr YT crashcourse](https://www.youtube.com/watch?v=mTz0GXj8NN0&t=1637s)
