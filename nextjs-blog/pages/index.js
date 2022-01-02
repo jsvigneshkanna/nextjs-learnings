@@ -2,8 +2,9 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
+import { getAllPost } from "../lib/posts";
 
-export default function Home() {
+export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
@@ -16,23 +17,33 @@ export default function Home() {
         </p>
         <p>Come lets all learn together 💃</p>
       </section>
-      <ul>
-        <li>
-          <Link href="/firstPost">
-            <a>First blog</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/firstPost">
-            <a>First blog</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/firstPost">
-            <a>First blog</a>
-          </Link>
-        </li>
-      </ul>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Blogs</h2>
+        <ul className={utilStyles.list}>
+          {allPostsData.map(({ id, Name, Description, Price, createdAt }) => (
+            <li className={utilStyles.listItem} key={id}>
+              {Name}
+              <br />
+              {Description}
+              <br />
+              {Price}
+              <br />
+              {createdAt}
+            </li>
+          ))}
+        </ul>
+      </section>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  let allPostsData = await getAllPost();
+  //   allPostsData = allPostsData.stringify();
+  console.log(allPostsData);
+  return {
+    props: {
+      allPostsData,
+    },
+  };
 }
