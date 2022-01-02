@@ -22,7 +22,9 @@ export default function Home({ allPostsData }) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, Name, Description, Price, createdAt }) => (
             <li className={utilStyles.listItem} key={id}>
-              {Name}
+              <Link href={`/${id}`}>
+                <a>{Name}</a>
+              </Link>
               <br />
               {Description}
               <br />
@@ -39,8 +41,6 @@ export default function Home({ allPostsData }) {
 
 export async function getStaticProps() {
   let allPostsData = await getAllPost();
-  //   allPostsData = allPostsData.stringify();
-  console.log(allPostsData);
   return {
     props: {
       allPostsData,
